@@ -1,4 +1,5 @@
 var sails = require('sails');
+const { datastores } = require('../config/datastores');
 
 // Before running any tests...
 before(function(done) {
@@ -7,7 +8,10 @@ before(function(done) {
   sails.lift({
     hooks: { grunt: false, csrf: false },
     log: { level: 'warn' },
-
+    models: {
+      datastore: 'test',
+      migrate: 'drop'
+    }
   }, (err) => {
     if (err) { return done(err); }
 

@@ -4,9 +4,9 @@
 
 <script>
   window.addEventListener('DOMContentLoaded', async () => {
-    const users = await fetch('/user').then((data) => data.json())
+    const users = await fetch('/users').then((data) => data.json())
     console.log(users)
-    const section = document.querySelector('#list-users')
+    const section = document.querySelector('#users-list')
     users.forEach(user => {
       section.innerHTML += "" +
         "<article>" +
