@@ -3,16 +3,13 @@
 </section>
 
 <script>
-  window.addEventListener('DOMContentLoaded', async () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     const users = await fetch('/user').then((data) => data.json())
-    console.log(users)
-    const section = document.querySelector('#list-users')
-    users.forEach(user => {
-      section.innerHTML += "" +
-        "<article>" +
-        `<h1>Name: ${user.name}</h1>` +
-        `"<p>Email: ${user.email}</p>` +
-        "</article>"
-    });
-  })  
-</script>
+    const section = document.querySelector('#users-list')
+    users.forEach(user => { 
+      const h1 = document.createElement('h1');
+      h1.textContent = `${user.name} - ${user.email}`;
+      section.appendChild(h1);
+  });
+})
+  </script>

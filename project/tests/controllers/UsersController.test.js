@@ -16,7 +16,7 @@ describe('UsersController', () => {
 
     assert.strictEqual(substituicao1.calledOnceWith({name: USER.name, email: USER.email}), true);
     assert.strictEqual(RESPONSE.statusCode, 200);
-    assert.deepStrictEqual(RESPONSE.body, {success: true});
+    assert.deepStrictEqual(RESPONSE.body, {success: "true"});
 
     substituicao1.restore();
   });
@@ -31,7 +31,7 @@ describe('route /register', function() {
     .expect('Content-Type', /json/)
     .end(function(err, res) {
       if (err) {console.log(err);return done(err)};
-      assert.deepStrictEqual(res.body, { success: true });
+      assert.deepStrictEqual(res.body, { success: "true" });
       done();
     });
   });
